@@ -7,13 +7,6 @@ Guang-Yuan Hao, Hengguan Huang, Haotian Wang, Jie Gao, Hao Wang<br>
 
 ## Outline for This README
 * [Brief Introduction for CAL](#brief-introduction-for-CAL)
-* [Sample Visualization of Inferred Domain Indices](#sample-visualization-of-inferred-domain-indices)
-* [Domain Index Definition (Informal)](#domain-index-definition-informal-see-formal-definition-in-the-paper)
-* [Method Overview](#method-overview)
-* [Installation](#installation)
-* [Code for Different Datasets](#code-for-different-datasets)
-* [Quantitative Result](#quantitative-result)
-* [More Visualization of Inferred Domain Indices](#more-visualization-of-inferred-domain-indices)
 * [Related Works](#also-check-our-relevant-work)
 * [Reference](#reference)
 
