@@ -27,7 +27,7 @@ Our theoretical analysis shows that our method achieves a better error bound com
 ```python
 conda env create -f environment.yml
 ```
-We run experiments on four datasets, including RotatingMNIST (10 classes), Office-Home (65 classes), ImageCLEF (12 classes), and Office-Caltech (10 classes). The corresponding run scripts are named run_mnist.py, run_of.py, run_celf.py, and run_ofct.py respectively.
+We run experiments on four datasets, including RotatingMNIST (10 classes), Office-Home (65 classes), ImageCLEF (12 classes), and Office-Caltech (10 classes). The corresponding run scripts are named run_mnist.py, run_of.py, run_celf.py, and run_ofct.py respectively. The path data contains all four datasets. For experiments using Office-Home, ImageCLEF, and Office-Caltech, we first extract features from images by pre-trained ResNet-50 and then use these features to form datasets.
 
 ## Also Check Our Relevant Work
 
