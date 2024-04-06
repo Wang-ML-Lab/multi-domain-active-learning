@@ -7,6 +7,7 @@ Guang-Yuan Hao, Hengguan Huang, Haotian Wang, Jie Gao, Hao Wang<br>
 
 ## Outline for This README
 * [Brief Introduction for CAL](#brief-introduction-for-CAL)
+* [Installation and Run](#Installation-and-Run)
 * [Related Works](#also-check-our-relevant-work)
 * [Reference](#reference)
 
@@ -22,7 +23,7 @@ CAL first assigns domain-level budgets according to domain-level importance, whi
 with the domain-level budgets, CAL then leverages a certain instance-level query strategy to select samples to label from each domain. 
 Our theoretical analysis shows that our method achieves a better error bound compared to current AL methods. Our empirical results demonstrate that our approach significantly outperforms the state-of-the-art AL methods on both synthetic and real-world multi-domain datasets.
 
-## Installation
+## Installation and Run
 ```python
 conda env create -f environment.yml
 ```
