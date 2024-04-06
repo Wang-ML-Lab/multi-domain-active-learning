@@ -27,7 +27,7 @@ Our theoretical analysis shows that our method achieves a better error bound com
 ```python
 conda env create -f environment.yml
 ```
-
+We run experiments on four datasets, including RotatingMNIST (10 classes), Office-Home (65 classes), ImageCLEF (12 classes), and Office-Caltech (10 classes). The corresponding run scripts are named run_mnist.py, run_of.py, run_celf.py, and run_ofct.py respectively.
 
 ## Also Check Our Relevant Work
 
