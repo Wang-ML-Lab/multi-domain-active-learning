@@ -357,12 +357,16 @@ Example:
 
 query_method = 'grads'  # Choice of instance-level strategy
 
-# Decoder: CAL contains two key elements, feature alignment and similarity estimation
+# Decoder: CAL contains two key elements: feature alignment and similarity estimation
+# The following sets the lambda for CAL in Equation 5.
 da = 2        # Sets lambda_d to 2 for the ablation study of CAL with only feature alignment
 alpha = 1     # Sets lambda_d to 1 for the ablation study of CAL with only similarity estimation
 alpha_da = 1  # Sets lambda_d to 1 in CAL
 
-For an explanation of hyperparameters in para_list, refer to the function pretrain (line 251).
+# To run traditional methods (using only instance-level strategies),
+# set the "model" argument of the pretrain function (line 251) to 'pure'.
+# This can be done in para_list (see below).
+# For an explanation of hyperparameters in para_list, refer to the function pretrain (line 251).
 """
 
 query_method = 'grads' 
