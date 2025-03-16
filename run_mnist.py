@@ -260,7 +260,12 @@ if __name__ == "__main__":
         parser.add_argument('--nStart', help='number of points to start', type=int, default=para_list[4]) # label budget when round=0
         parser.add_argument('--nEnd', help = 'total number of labels', type=int, default=para_list[5]) # total budget
         parser.add_argument('--model', help='pure, alpha, DA, alDA', type=str, default=para_list[6]) 
-        #pure: model with only a query strategy, alpha: model with similiarity estimation, DA: model with feature alignment, alDA: full model with similiarity estimation and feature alignment
+        """
+        pure: Traditional methods using only instance-level strategies.
+        DA: Ablation study of our proposed CAL with only feature alignment.
+        alpha: Ablation study of our proposed CAL with only similarity estimation.
+        alDA: Our proposed CAL.
+        """
         parser.add_argument('--lr', help='learning rate', type=float, default=para_list[7]) # model
         parser.add_argument('--nEmb', help='number of embedding dims (mlp)', type=int, default=256) 
         parser.add_argument('--nz', help='number of embedding dims (conv)', type=int, default=100)  
@@ -331,12 +336,44 @@ num_per_round = 150
 num_round = 5
 num_end = num_init_round + num_round*num_per_round
 
+ 
+
 data_name = 'MNIST'
 
-query_method = 'random' 
-da = 2
-alpha = 1
-alpha_da = 1
+"""
+CAL contains two levels of query strategy:
+
+(1) Instance-level strategy: Selects samples from unlabeled data, including:
+    - Random sampling ('random')
+    - Entropy-based sampling ('entropy')
+    - GraDS sampling ('grads') – our proposed instance-level strategy (see Sec. 3.5 of our paper)
+    - Other strategies (refer to lines 134–157 for details)
+
+(2) Domain-level strategy: Determines how many samples should be selected from each domain.
+
+The following demonstrates how to set hyperparameters:
+
+Example:
+
+query_method = 'grads'  # Choice of instance-level strategy
+
+# Decoder: CAL contains two key elements, feature alignment and similarity estimation
+da = 2        # Sets lambda_d to 2 for the ablation study of CAL with only feature alignment
+alpha = 1     # Sets lambda_d to 1 for the ablation study of CAL with only similarity estimation
+alpha_da = 1  # Sets lambda_d to 1 in CAL
+
+For an explanation of hyperparameters in para_list, refer to the function pretrain (line 251).
+"""
+
+query_method = 'grads' 
+da =  2 #1
+alpha = 1#0.3 #1
+alpha_da = 1 #1
+
+# query_method = 'random' 
+# da = 2
+# alpha = 1
+# alpha_da = 1
 
 # query_method = 'margin' 
 # alpha = 1
@@ -357,10 +394,7 @@ alpha_da = 1
 # alpha = 1
 # alpha_da = 1 #1
 
-# query_method = 'grads' 
-# da =  2 #1
-# alpha = 1#0.3 #1
-# alpha_da = 1 #1
+
 
 gpu_pure = 0
 gpu_da = 1
